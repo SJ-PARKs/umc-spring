@@ -3,7 +3,7 @@ package umc.spring.domain;
 import lombok.*;
 import umc.spring.domain.common.BaseEntity;
 
-import jakarta.persistence.*;
+import javax.persistence.*;
 
 @Entity
 @Getter

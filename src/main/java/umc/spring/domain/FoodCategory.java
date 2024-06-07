@@ -1,10 +1,10 @@
 package umc.spring.domain;
 
-import jakarta.persistence.*;
 import lombok.*;
 import umc.spring.domain.common.BaseEntity;
 import umc.spring.domain.mapping.MemberPrefer;
 
+import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.List;
 

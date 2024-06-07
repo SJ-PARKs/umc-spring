@@ -7,8 +7,8 @@ import umc.spring.domain.Member;
 import umc.spring.service.MemberService.MemberQueryService;
 import umc.spring.validation.annotation.ExistMember;
 
-import jakarta.validation.ConstraintValidator;
-import jakarta.validation.ConstraintValidatorContext;
+import javax.validation.ConstraintValidator;
+import javax.validation.ConstraintValidatorContext;
 import java.util.Optional;
 
 @Component
