@@ -19,6 +19,7 @@ public class MissionCommandServiceImpl implements MissionCommandService{
     private final MemberRepository memberRepository;
     private final MissionRepository missionRepository;
 
+    //mission-member
     @Override
     public MemberMission createMemberMission(ChallengeMissionDTO request) {
         MemberMission memberMission = MissionConverter.toMemberMission(request);
