@@ -4,13 +4,12 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import umc.spring.converter.StoreConverter;
+import umc.spring.domain.Mission;
 import umc.spring.domain.Region;
 import umc.spring.domain.Review;
 import umc.spring.domain.Store;
-import umc.spring.repository.MemberRepository;
-import umc.spring.repository.RegionRepository;
-import umc.spring.repository.ReviewRepository;
-import umc.spring.repository.StoreRepository;
+import umc.spring.repository.*;
+import umc.spring.web.dto.MissionRequestDTO;
 import umc.spring.web.dto.StoreRequestDTO;
 
 @Service
@@ -25,6 +24,8 @@ public class StoreCommandServiceImpl implements StoreCommandService{
     private final StoreRepository storeRepository;
 
     private final RegionRepository regionRepository;
+
+    private final MissionRepository missionRepository;
 
     @Override
     public Store createStore(StoreRequestDTO.StoreDTO request) {
@@ -44,4 +45,14 @@ public class StoreCommandServiceImpl implements StoreCommandService{
 
         return reviewRepository.save(review);
     }
+
+    public Mission createMission(Long storeId, MissionRequestDTO.MissionDTO request) {
+
+        Mission mission = StoreConverter.toMission(request);
+
+        mission.setStore(storeRepository.findById(storeId).get());
+
+        return missionRepository.save(mission);
+    }
+
 }
